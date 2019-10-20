@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Morsley.UK.YearPlanner.Entities.API.Swagger
+namespace API.Swagger
 {
     public class SwaggerDefaultValues : IOperationFilter
     {

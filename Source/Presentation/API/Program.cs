@@ -5,7 +5,7 @@ using Serilog;
 using System;
 using System.IO;
 
-namespace Morsley.UK.YearPlanner.Entities.API
+namespace API
 {
     public class Program
     {
@@ -19,7 +19,7 @@ namespace Morsley.UK.YearPlanner.Entities.API
 
             Log.Logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(configuration)
-                .Enrich.WithProperty("Application Name", "Morsley UK - Year Planner - Entities API")
+                .Enrich.WithProperty("Application Name", "Entities API")
                 .Enrich.FromLogContext()
                 .CreateLogger();
 

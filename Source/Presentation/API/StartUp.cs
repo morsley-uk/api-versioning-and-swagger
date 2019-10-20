@@ -7,10 +7,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using Morsley.UK.YearPlanner.Entities.API.Swagger;
+using API.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Morsley.UK.YearPlanner.Entities.API
+namespace API
 {
     public class StartUp
     {

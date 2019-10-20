@@ -7,7 +7,7 @@ using System;
 using System.IO;
 using System.Reflection;
 
-namespace Morsley.UK.YearPlanner.Entities.API.Swagger
+namespace API.Swagger
 {
     public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
     {

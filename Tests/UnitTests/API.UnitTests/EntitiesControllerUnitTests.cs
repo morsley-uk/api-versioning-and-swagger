@@ -1,21 +1,20 @@
+using API.Controllers.v1;
 using FluentAssertions;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Morsley.UK.YearPlanner.Users.API.Controllers.v1;
-using Morsley.UK.YearPlanner.Users.API.Models;
 using System;
 using Xunit;
 
-namespace Morsley.UK.YearPlanner.Users.API.UnitTests
+namespace API.UnitTests
 {
-    public class UsersControllerUnitTests
+    public class EntitiesControllerUnitTests
     {
         [Fact]
         public void GET_Should_Return_BadRequest_When_Request_Is_Null()
         {
             // Arrange...
-            var sut = new UsersController();
-            const GetUsersRequest request = null;
+            var sut = new EntitiesController();
+            const API.Models.v1.Request.GetEntitiesRequest request = null;
 
             // Act...
             var result = sut.Get(request);
@@ -26,11 +25,11 @@ namespace Morsley.UK.YearPlanner.Users.API.UnitTests
         }
 
         [Fact]
-        public void GET_Should_Return_NoContent_When_No_Users_Exist()
+        public void GET_Should_Return_NoContent_When_No_Entities_Exist()
         {
             // Arrange...
-            var sut = new UsersController();
-            var request = new GetUsersRequest();
+            var sut = new EntitiesController();
+            var request = new API.Models.v1.Request.GetEntitiesRequest();
 
             // Act...
             var response = sut.Get(request);
@@ -44,7 +43,7 @@ namespace Morsley.UK.YearPlanner.Users.API.UnitTests
         public void GET_By_Id_Should_Return_BadRequest_When_Id_Is_Default()
         {
             // Arrange...
-            var sut = new UsersController();
+            var sut = new EntitiesController();
             var id = Guid.Empty;
 
             // Act...
@@ -56,10 +55,10 @@ namespace Morsley.UK.YearPlanner.Users.API.UnitTests
         }
 
         [Fact]
-        public void GET_By_Id_Should_Return_NoContent_When_No_Users_Exist()
+        public void GET_By_Id_Should_Return_NoContent_When_No_Entities_Exist()
         {
             // Arrange...
-            var sut = new UsersController();
+            var sut = new EntitiesController();
             var userId = Guid.NewGuid();
 
             // Act...
@@ -74,8 +73,8 @@ namespace Morsley.UK.YearPlanner.Users.API.UnitTests
         public void POST_Should_Return_BadRequest_When_Request_Is_Null()
         {
             // Arrange...
-            var sut = new UsersController();
-            const CreateUserRequest request = null;
+            var sut = new EntitiesController();
+            const API.Models.v1.Request.CreateEntityRequest request = null;
 
             // Act...
             var result = sut.Add(request);
@@ -89,8 +88,8 @@ namespace Morsley.UK.YearPlanner.Users.API.UnitTests
         public void POST_Should_Return_Created_When_Request_Is_Successful()
         {
             // Arrange...
-            var sut = new UsersController();
-            var request = new CreateUserRequest();
+            var sut = new EntitiesController();
+            var request = new API.Models.v1.Request.CreateEntityRequest();
 
             // Act...
             var result = sut.Add(request);
@@ -104,7 +103,7 @@ namespace Morsley.UK.YearPlanner.Users.API.UnitTests
         public void DELETE_Should_Return_BadRequest_When_Id_Is_Default()
         {
             // Arrange...
-            var sut = new UsersController();
+            var sut = new EntitiesController();
             var id = Guid.Empty;
 
             // Act...
@@ -119,9 +118,9 @@ namespace Morsley.UK.YearPlanner.Users.API.UnitTests
         public void PUT_Should_Return_Bad_Request_When_Request_Is_Null()
         {
             // Arrange...
-            var sut = new UsersController();
+            var sut = new EntitiesController();
             var userId = Guid.NewGuid();
-            const API.Models.UpdateUserRequest request = null;
+            const API.Models.v1.Request.UpdateEntityRequest request = null;
 
             // Act...
             var result = sut.Update(userId, request);
@@ -135,9 +134,9 @@ namespace Morsley.UK.YearPlanner.Users.API.UnitTests
         public void PATCH_Should_Return_Bad_Request_When_PatchDocument_Is_Null()
         {
             // Arrange...
-            var sut = new UsersController();
+            var sut = new EntitiesController();
             var userId = Guid.NewGuid();
-            const JsonPatchDocument<UpdateUserRequest> patchDocument = null;
+            const JsonPatchDocument<API.Models.v1.Request.UpdateEntityRequest> patchDocument = null;
 
             // Act...
             var result = sut.Update(userId, patchDocument);
